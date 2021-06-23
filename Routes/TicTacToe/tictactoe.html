@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic - Tac - Toe</title>
+  </head>
+  <body>
+    <header>
+      <div class="heading">Tic Tac Toe</div>
+    </header>
+    <main>
+      <form action="./something" id="form">
+        <input
+          type="text"
+          id="sizefield"
+          placeholder="numbers only between 3 to 10"
+        />
+        <button type="submit" id="changesize">Change Size</button>
+      </form>
+      <div id="tictactoe"></div>
+      <div class="turn__cont">
+        <div class="turn x" id="labelx">X</div>
+        <div class="turn o" id="labelo">O</div>
+        <div class="turn indicator" id="indicator"></div>
+      </div>
+      <button id="restart">Restart</button>
+      <div class="rules__heading">Rules:</div>
+      <ul>
+        <li>All the normal tictactoe game rules woks here.</li>
+        <li>Restart button and changing size will reset the win counter</li>
+        <li>After each round game resets after 2 seconds</li>
+      </ul>
+    </main>
+    <div class="relative__links" id="relative__links">
+      <div class="relative__heading">Relative links</div>
+      <a href="../TicTacToeAi/tictactoeai.html">TicTacToe with min-max</a>
+      <div id="close__relative">X</div>
+    </div>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </body>
+</html>
