@@ -4,9 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic - Tac - Toe with Min-Max</title>
+    <title>Tic - Tac - Toe</title>
   </head>
   <body>
-    <h1>Coming soon... You are too early</h1>
+    <header>
+      <div class="heading">Tic Tac Toe</div>
+    </header>
+    <main>
+      <div id="tictactoe"></div>
+      <button id="restart">Restart</button>
+      <div class="rules__heading">Rules:</div>
+      <ul>
+        <li>All the normal tictactoe game rules woks here.</li>
+        <li>You are first, AI will play after you</li>
+        <li>
+          Option of changing size is removed, because running minmax AI in
+          browser is nighmare if your depth is going above 6
+        </li>
+      </ul>
+    </main>
+    <div class="relative__links" id="relative__links">
+      <div class="relative__heading">Relative links</div>
+      <a href="../TicTacToe/tictactoe.html">TicTacToe with 2 player</a>
+      <div id="close__relative">X</div>
+    </div>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
   </body>
 </html>

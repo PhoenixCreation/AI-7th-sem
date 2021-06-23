@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --size: 3;
+  --xcolor: #5643e1;
+  --ocolor: #1356f3;
+}
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid grey;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+main {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+}
+#tictactoe {
+  display: grid;
+  grid-template-columns: repeat(var(--size), 1fr);
+  grid-template-rows: repeat(var(--size), 1fr);
+}
+.box {
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid blue;
+  margin: 3px;
+  position: relative;
+}
+.box.x::after {
+  content: "X";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--xcolor);
+}
+.box.o::after {
+  content: "O";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--ocolor);
+}
+.box.win::after {
+  background: #060;
+}
+.box.draw::after {
+  background: #444 !important;
+}
+#form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#sizefield {
+  all: initial;
+  border-bottom: 2px solid #f34567;
+  font-size: 0.8rem;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+#changesize {
+  all: initial;
+  cursor: pointer;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  background: #5618f1;
+  margin-bottom: 10px;
+  color: aliceblue;
+}
+#restart {
+  all: initial;
+  cursor: pointer;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  background: #5618f1;
+  margin-bottom: 10px;
+  color: aliceblue;
+  margin-top: 10px;
+}
+.rules__heading {
+  font-weight: bold;
+}
+.relative__links {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: #f99;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #f55;
+  transform: translateY(120%);
+  animation: up 1s 5s ease-in-out forwards;
+}
+@keyframes up {
+  0% {
+    transform: translateY(120%);
+  }
+  60% {
+    transform: translateY(-60%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+#close__relative {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  background: black;
+  color: white;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
