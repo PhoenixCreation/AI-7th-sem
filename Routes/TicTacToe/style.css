@@ -148,10 +148,16 @@ main {
   padding: 10px;
   border: 1px solid #f55;
   transform: translateY(120%);
-  animation: up 1s 5s ease forwards;
+  animation: up 1s 5s ease-in-out forwards;
 }
 @keyframes up {
-  to {
+  0% {
+    transform: translateY(120%);
+  }
+  60% {
+    transform: translateY(-60%);
+  }
+  100% {
     transform: translateY(0%);
   }
 }
