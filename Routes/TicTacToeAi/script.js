@@ -16,6 +16,11 @@ closeRelatives.onclick = () => {
 };
 
 const game = (size = 3, wins = { x: 0, o: 0 }) => {
+  if (size > 4) {
+    console.warn("Don't go above 4. It is very hard");
+    game(3, wins);
+    return;
+  }
   // whenever restart is pressed
   restartbtn.onclick = () => {
     game(size);
@@ -159,7 +164,7 @@ const game = (size = 3, wins = { x: 0, o: 0 }) => {
       for (let j = 0; j < size; j++) {
         if (board[i][j] === null) {
           board[i][j] = "o";
-          let score = minimax(board, 0, false);
+          let score = minimaxAB(board, 0, false, -99999, 99999);
           board[i][j] = null;
           if (score > bestScore) {
             bestScore = score;
@@ -172,7 +177,61 @@ const game = (size = 3, wins = { x: 0, o: 0 }) => {
     setMove(move.x, move.y, move.x * size + move.y, "o");
   };
 
+  const minimaxAB = (board, depth, isMaximizing, alpha, beta) => {
+    if (depth > 7) {
+      return 0;
+    }
+    let result = checkWin();
+    if (result === "x") {
+      return -10;
+    } else if (result === "o") {
+      return 10;
+    } else if (result === "draw") {
+      return 0;
+    }
+    if (isMaximizing) {
+      let bestScore = -Infinity;
+      for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+          if (board[i][j] === null) {
+            board[i][j] = "o";
+            if (beta <= alpha) {
+              board[i][j] = null;
+              continue;
+            }
+            let score = minimaxAB(board, depth + 1, false, alpha, beta);
+            board[i][j] = null;
+            bestScore = Math.max(score, bestScore);
+            alpha = Math.max(alpha, score);
+          }
+        }
+      }
+      return bestScore;
+    } else {
+      let bestScore = Infinity;
+      for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+          if (board[i][j] === null) {
+            board[i][j] = "x";
+            if (beta <= alpha) {
+              board[i][j] = null;
+              continue;
+            }
+            let score = minimaxAB(board, depth + 1, true, alpha, beta);
+            board[i][j] = null;
+            bestScore = Math.min(score, bestScore);
+            beta = Math.min(beta, score);
+          }
+        }
+      }
+      return bestScore;
+    }
+  };
+
   const minimax = (board, depth, isMaximizing) => {
+    if (depth > 6) {
+      return 0;
+    }
     let result = checkWin();
     if (result === "x") {
       return -10;
