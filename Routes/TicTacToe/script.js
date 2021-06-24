@@ -19,6 +19,7 @@ const relativeLinks = document.getElementById("relative__links");
 closeRelatives.onclick = () => {
   relativeLinks.style.display = "none";
 };
+var board = [];
 
 const game = (size = 3, wins = { x: 0, o: 0 }) => {
   // whenever restart is pressed
@@ -44,7 +45,7 @@ const game = (size = 3, wins = { x: 0, o: 0 }) => {
   // array of box elements that holds the reference to DOM of each box
   // index from 0 to 8
   const boxes = [];
-  const board = [];
+  board = [];
   const sequence = {};
 
   // create size * size DOM elements of boxes like
@@ -256,6 +257,7 @@ const game = (size = 3, wins = { x: 0, o: 0 }) => {
       i++;
       j++;
     }
+    console.log({ count, size });
     if (count === size) {
       sequence.type = "cross";
       sequence.index = 0;
@@ -318,5 +320,5 @@ form.onsubmit = (e) => {
     alert("only numbers between 3 and 10 are allowed");
     return;
   }
-  game(sizeInput.value);
+  game(parseInt(sizeInput.value));
 };
